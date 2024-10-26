@@ -1,21 +1,26 @@
 Type: Package
 Package: PCSF
-Title: Network-based interpretation of highthroughput data
-Version: 0.99.68
-Date: 2017-02-01
-Author: Murodzhon Akhmedov, Amanda Kedaigle, Renan Escalante, Roberto
-    Montemanni, Francesco Bertoni, Ernest Fraenkel, Ivo Kwee
-Maintainer: Murodzhon Akhmedov <murodzhon@idsia.ch>
-Description: The PCSF package performs an integrated analysis of
-    highthroughput data using the interaction networks as a template, and
-    interprets the biological landscape of interaction networks with
-    respect to the data, which potentially leads to predictions of
-    functional units. It also interactively visualize the resulting
-    subnetwork with functional enrichment analysis.
+Title: Network-Based Interpretation of High-Throughput Data
+Version: 1.0.69
+Date: 2024-10-26
+Authors@R: c(
+    person("Murodzhon", "Akhmedov", email = "murodzhon@idsia.ch", role = c("aut", "cre")),
+    person("Amanda", "Kedaigle", role = "aut"),
+    person("Renan", "Escalante", role = "aut"),
+    person("Roberto", "Montemanni", role = "aut"),
+    person("Francesco", "Bertoni", role = "aut"),
+    person("Ernest", "Fraenkel", role = "aut"),
+    person("Ivo", "Kwee", role = "aut"))
+Description: Provides an integrated analysis of high-throughput data using interaction networks as templates.
+    The package interprets biological networks within the context of provided data, potentially predicting
+    functional units. Additionally, the package supports interactive visualization of subnetworks and
+    functional enrichment analysis.
 License: MIT + file LICENSE
+URL: https://github.com/CogDisResLab/PCSF
+BugReports: https://github.com/CogDisResLab/PCSF/issues
 Depends:
+    R (>= 4.0.0),
     igraph,
-    R (>= 3.1.0),
     visNetwork
 Imports:
     BH,
@@ -27,9 +32,12 @@ Imports:
     topGO
 Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 LinkingTo:
     BH,
     Rcpp
 Encoding: UTF-8
 RoxygenNote: 7.3.2
+Config/testthat/edition: 3
+LazyData: true

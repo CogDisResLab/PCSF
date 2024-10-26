@@ -3,6 +3,7 @@ Akhmedov
 al
 Alexa
 AliSajid
+aut
 Avi
 Bertoni
 betweenness
@@ -12,10 +13,13 @@ BioMed
 biomolecule
 biomolecules
 BMC
+BugReports
 CBL
 ci
 CMake
+CogDisResLab
 config
+cre
 downregulation
 dplyr
 dysregulated
@@ -36,6 +40,7 @@ GW
 highthroughput
 highthrougput
 Hs
+https
 httr
 idsia
 igraph
@@ -47,6 +52,7 @@ Ivo
 Kedaigle
 knitr
 Kwee
+LazyData
 LeNail
 lightblue
 LinkingTo
@@ -86,6 +92,7 @@ subnet
 subnetwork
 subnetworks
 subunits
+testthat
 TGF
 Tgfb
 topGO

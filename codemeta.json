@@ -2,10 +2,12 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "PCSF",
-  "description": "The PCSF package performs an integrated analysis of highthroughput data using the interaction networks as a template, and interprets the biological landscape of interaction networks with respect to the data, which potentially leads to predictions of functional units. It also interactively visualize the resulting subnetwork with functional enrichment analysis.",
-  "name": "PCSF: Network-based interpretation of highthroughput data",
+  "description": "Provides an integrated analysis of high-throughput data using interaction networks as templates. The package interprets biological networks within the context of provided data, potentially predicting functional units. Additionally, the package supports interactive visualization of subnetworks and functional enrichment analysis.",
+  "name": "PCSF: Network-Based Interpretation of High-Throughput Data",
+  "codeRepository": "https://github.com/CogDisResLab/PCSF",
+  "issueTracker": "https://github.com/CogDisResLab/PCSF/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.99.68",
+  "version": "1.0.69",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -13,6 +15,12 @@
   },
   "runtimePlatform": "R version 4.4.1 (2024-06-14)",
   "author": [
+    {
+      "@type": "Person",
+      "givenName": "Murodzhon",
+      "familyName": "Akhmedov",
+      "email": "murodzhon@idsia.ch"
+    },
     {
       "@type": "Person",
       "givenName": "Amanda",
@@ -76,10 +84,29 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
   "softwareRequirements": {
     "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.0.0"
+    },
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "igraph",
       "name": "igraph",
@@ -90,12 +117,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=igraph"
-    },
-    "2": {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": ">= 3.1.0"
     },
     "3": {
       "@type": "SoftwareApplication",
@@ -181,7 +202,6 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "7741.975KB",
-  "codeRepository": "https://github.com/CogDisResLab/PCSF",
+  "fileSize": "7742.364KB",
   "readme": "https://github.com/CogDisResLab/PCSF/blob/master/README.md"
 }
