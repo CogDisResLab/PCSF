@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/CogDisResLab/PCSF",
   "issueTracker": "https://github.com/CogDisResLab/PCSF/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.69",
+  "version": "1.0.70",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -202,6 +202,6 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "7742.364KB",
+  "fileSize": "7743.344KB",
   "readme": "https://github.com/CogDisResLab/PCSF/blob/master/README.md"
 }
