@@ -6,3 +6,4 @@
 ^codemeta\.json$
 ^renv$
 ^renv\.lock$
+^utilities$
