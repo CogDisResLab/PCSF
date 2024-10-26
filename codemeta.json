@@ -5,7 +5,7 @@
   "description": "The PCSF package performs an integrated analysis of highthroughput data using the interaction networks as a template, and interprets the biological landscape of interaction networks with respect to the data, which potentially leads to predictions of functional units. It also interactively visualize the resulting subnetwork with functional enrichment analysis.",
   "name": "PCSF: Network-based interpretation of highthroughput data",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.99.67",
+  "version": "0.99.68",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -181,7 +181,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "7741.971KB",
+  "fileSize": "7741.975KB",
   "codeRepository": "https://github.com/CogDisResLab/PCSF",
   "readme": "https://github.com/CogDisResLab/PCSF/blob/master/README.md"
 }

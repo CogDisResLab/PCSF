@@ -39,7 +39,7 @@ repos:
           data/.*|
           .*\.(gz|xz|bz2)|
           (.*/|)codemeta.json|
-          COMMIT_EDITMSG
+          (.*)COMMIT_EDITMSG|
           )$
     -   id: readme-rmd-rendered
     -   id: parsable-R
