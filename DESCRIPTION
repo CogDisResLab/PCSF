@@ -1,7 +1,7 @@
 Type: Package
 Package: PCSF
 Title: Network-Based Interpretation of High-Throughput Data
-Version: 1.0.71
+Version: 1.0.72
 Date: 2024-10-26
 Authors@R: c(
     person("Murodzhon", "Akhmedov", email = "murodzhon@idsia.ch", role = c("aut", "cre")),

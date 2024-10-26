@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/CogDisResLab/PCSF",
   "issueTracker": "https://github.com/CogDisResLab/PCSF/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.71",
+  "version": "1.0.72",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
