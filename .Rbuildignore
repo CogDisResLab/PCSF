@@ -1,4 +1,8 @@
+^.*\.Rproj$
+^HISTORY\.rst$
+^LICENSE\.md$
+^\.Rproj\.user$
+^\.pre-commit-config\.yaml$
+^codemeta\.json$
 ^renv$
 ^renv\.lock$
-^.*\.Rproj$
-^\.Rproj\.user$

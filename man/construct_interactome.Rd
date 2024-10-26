@@ -8,21 +8,22 @@ construct_interactome(ppi)
 }
 \arguments{
 \item{ppi}{A list of edges. A \code{data.frame} composed of three columns, where each
-row corresponds to an edge in which the first element is a \code{head}, the second 
+row corresponds to an edge in which the first element is a \code{head}, the second
 element is a \code{tail}, and the last element represents the \code{cost} of the edge.}
 }
 \value{
 An interaction network as \pkg{igraph} object.
 }
 \description{
-Given a list of edges, \code{construct_interactome} generates 
+Given a list of edges, \code{construct_interactome} generates
 an interaction network which is used as a template network to interpret the highthrougput data.
 }
 \examples{
 \dontrun{
 library("PCSF")
 data("STRING")
-ppi <- construct_interactome(STRING)}
+ppi <- construct_interactome(STRING)
+}
 
 }
 \author{

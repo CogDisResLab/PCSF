@@ -77,7 +77,8 @@ data("STRING")
 data("Tgfb_phospho")
 terminals <- Tgfb_phospho
 ppi <- construct_interactome(STRING)
-subnet <- PCSF(ppi, terminals, w = 2, b = 1, mu = 0.0005)}
+subnet <- PCSF(ppi, terminals, w = 2, b = 1, mu = 0.0005)
+}
 
 }
 \references{
