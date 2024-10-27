@@ -1,0 +1,213 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "PCSF",
+  "description": "Provides an integrated analysis of high-throughput data using interaction networks as templates. The package interprets biological networks within the context of provided data, potentially predicting functional units. Additionally, the package supports interactive visualization of subnetworks and functional enrichment analysis.",
+  "name": "PCSF: Network-Based Interpretation of High-Throughput Data",
+  "codeRepository": "https://github.com/CogDisResLab/PCSF",
+  "issueTracker": "https://github.com/CogDisResLab/PCSF/issues",
+  "license": "https://spdx.org/licenses/MIT",
+  "version": "0.99.76",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Imami",
+      "familyName": "Ali Sajid",
+      "email": "Ali.Sajid.Imami@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Murodzhon",
+      "familyName": "Akhmedov",
+      "email": "murodzhon@idsia.ch"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Amanda",
+      "familyName": "Kedaigle"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Renan",
+      "familyName": "Escalante"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Roberto",
+      "familyName": "Montemanni"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Francesco",
+      "familyName": "Bertoni"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ernest",
+      "familyName": "Fraenkel"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ivo",
+      "familyName": "Kwee"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Imami",
+      "familyName": "Ali Sajid",
+      "email": "Ali.Sajid.Imami@gmail.com"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.0.0"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "igraph",
+      "name": "igraph",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=igraph"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "visNetwork",
+      "name": "visNetwork",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=visNetwork"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "BH",
+      "name": "BH",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=BH"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
+    },
+    "8": {
+      "@type": "SoftwareApplication",
+      "identifier": "org.Hs.eg.db",
+      "name": "org.Hs.eg.db"
+    },
+    "9": {
+      "@type": "SoftwareApplication",
+      "identifier": "Rcpp",
+      "name": "Rcpp",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=Rcpp"
+    },
+    "10": {
+      "@type": "SoftwareApplication",
+      "identifier": "topGO",
+      "name": "topGO",
+      "provider": {
+        "@id": "https://www.bioconductor.org",
+        "@type": "Organization",
+        "name": "Bioconductor",
+        "url": "https://www.bioconductor.org"
+      },
+      "sameAs": "https://bioconductor.org/packages/release/bioc/html/topGO.html"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "7743.831KB",
+  "readme": "https://github.com/CogDisResLab/PCSF/blob/master/README.md"
+}

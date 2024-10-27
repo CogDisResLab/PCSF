@@ -66,7 +66,8 @@
 #' data("Tgfb_phospho")
 #' terminals <- Tgfb_phospho
 #' ppi <- construct_interactome(STRING)
-#' subnet <- PCSF(ppi, terminals, w = 2, b = 1, mu = 0.0005)}
+#' subnet <- PCSF(ppi, terminals, w = 2, b = 1, mu = 0.0005)
+#' }
 #'
 #' @author Murodzhon Akhmedov
 #'
@@ -79,107 +80,107 @@
 
 
 PCSF <-
-function(ppi, terminals, w = 2, b = 1, mu = 0.0005, dummies){
-
-  # Checking function arguments
-  if (missing(ppi))
-    stop("Need to specify an interaction network \"ppi\".")
-  if (class(ppi) != "igraph")
-    stop("The interaction network \"ppi\" must be an igraph object.")
-  if (missing(terminals))
-    stop("  Need to provide terminal nodes as a named numeric vector,
+    function(ppi, terminals, w = 2, b = 1, mu = 0.0005, dummies) {
+        # Checking function arguments
+        if (missing(ppi)) {
+            stop("Need to specify an interaction network \"ppi\".")
+        }
+        if (class(ppi) != "igraph") {
+            stop("The interaction network \"ppi\" must be an igraph object.")
+        }
+        if (missing(terminals)) {
+            stop("  Need to provide terminal nodes as a named numeric vector,
     where node names must be same as in the interaction network.")
-  if(is.null(names(terminals)))
-    stop("  The terminal nodes must be provided as a named numeric vector,
+        }
+        if (is.null(names(terminals))) {
+            stop("  The terminal nodes must be provided as a named numeric vector,
     where node names must be same as in the interaction network.")
+        }
 
 
 
 
-  # Gather the terminal genes to be analyzed, and their scores
-  terminal_names = names(terminals)
-  terminal_values = as.numeric(terminals)
+        # Gather the terminal genes to be analyzed, and their scores
+        terminal_names <- names(terminals)
+        terminal_values <- as.numeric(terminals)
 
-  # Incorporate the node prizes
-  node_names = V(ppi)$name
-  node_prz = vector(mode = "numeric", length = length(node_names))
-  index = match(terminal_names, node_names)
-  percent = signif((length(index) - sum(is.na(index)))/length(index)*100, 4)
-  if (percent < 5)
-    stop("  Less than 1% of your terminal nodes are matched in the interactome, check your terminals!")
-  cat(paste0("  ", percent, "% of your terminal nodes are included in the interactome\n"))
-  terminal_names = terminal_names[!is.na(index)]
-  terminal_values = terminal_values[!is.na(index)]
-  index = index[!is.na(index)]
-  node_prz[index] =  terminal_values
+        # Incorporate the node prizes
+        node_names <- V(ppi)$name
+        node_prz <- vector(mode = "numeric", length = length(node_names))
+        index <- match(terminal_names, node_names)
+        percent <- signif((length(index) - sum(is.na(index))) / length(index) * 100, 4)
+        if (percent < 5) {
+            stop("  Less than 1% of your terminal nodes are matched in the interactome, check your terminals!")
+        }
+        cat(paste0("  ", percent, "% of your terminal nodes are included in the interactome\n"))
+        terminal_names <- terminal_names[!is.na(index)]
+        terminal_values <- terminal_values[!is.na(index)]
+        index <- index[!is.na(index)]
+        node_prz[index] <- terminal_values
 
-  if(missing(dummies)||is.null(dummies)||is.na(dummies))
-    dummies = terminal_names #re-assign this to allow for input
+        if (missing(dummies) || is.null(dummies) || is.na(dummies)) {
+            dummies <- terminal_names
+        } # re-assign this to allow for input
 
-  ## Prepare input file for MST-PCSF implementation in C++
+        ## Prepare input file for MST-PCSF implementation in C++
 
-  cat("  Solving the PCSF...\n")
+        cat("  Solving the PCSF...\n")
 
-  # Calculate the hub penalization scores
-  node_degrees = igraph::degree(ppi)
-  hub_penalization = - mu*node_degrees
+        # Calculate the hub penalization scores
+        node_degrees <- igraph::degree(ppi)
+        hub_penalization <- -mu * node_degrees
 
-  # Update the node prizes
-  node_prizes = b*node_prz
-  index = which(node_prizes==0)
-  node_prizes[index] = hub_penalization[index]
-
-
-  # Construct the list of edges
-  edges = ends(ppi,es = E(ppi))
-  from = c(rep("DUMMY", length(dummies)), edges[,1])
-  to = c(dummies, edges[,2])
-
-  cost = c(rep(w, length(dummies)), E(ppi)$weight)
-
-  #PCSF will faill if there are NAs in weights, this will check and fail gracefully
-  if(any(is.na(E(ppi)$weight))){
-
-  }
-
-  ## Feed the input into the PCSF algorithm
-  output = call_sr(from,to,cost,node_names,node_prizes)
-
-  # Check the size of output subnetwork and print a warning if it is 0
-  if(length(output[[1]]) != 0){
-
-    #names(output) = c("from", "to", "cost", "terminal_names", "terminal_prizes")
-
-    # Contruct an igraph object from the MST-PCSF output
-    e = data.frame(output[[1]], output[[2]], output[[3]])
-    #e = e[which(e[,1]!="DUMMY"), ]
-    Ee = e[which(e[,2]!="DUMMY"), ]
-    names(e) = c("from", "to", "weight")
+        # Update the node prizes
+        node_prizes <- b * node_prz
+        index <- which(node_prizes == 0)
+        node_prizes[index] <- hub_penalization[index]
 
 
-    # Differentiate the type of nodes
-    type = rep("Steiner", length(output[[4]]))
-    index = match(terminal_names, output[[4]])
-    index = index[!is.na(index)]
-    type[index] = "Terminal"
+        # Construct the list of edges
+        edges <- ends(ppi, es = E(ppi))
+        from <- c(rep("DUMMY", length(dummies)), edges[, 1])
+        to <- c(dummies, edges[, 2])
 
-    v = data.frame(output[[4]], output[[5]], type)
-    names(v) = c("terminals", "prize", "type")
-    subnet = graph.data.frame(e,vertices=v,directed=F)
-    E(subnet)$weight=as.numeric(output[[3]])
-    subnet = delete_vertices(subnet, "DUMMY")
-    subnet = delete_vertices(subnet, names(which(degree(subnet)==0)))
+        cost <- c(rep(w, length(dummies)), E(ppi)$weight)
+
+        # PCSF will faill if there are NAs in weights, this will check and fail gracefully
+        if (any(is.na(E(ppi)$weight))) {
+
+        }
+
+        ## Feed the input into the PCSF algorithm
+        output <- call_sr(from, to, cost, node_names, node_prizes)
+
+        # Check the size of output subnetwork and print a warning if it is 0
+        if (length(output[[1]]) != 0) {
+            # names(output) = c("from", "to", "cost", "terminal_names", "terminal_prizes")
+
+            # Contruct an igraph object from the MST-PCSF output
+            e <- data.frame(output[[1]], output[[2]], output[[3]])
+            # e = e[which(e[,1]!="DUMMY"), ]
+            Ee <- e[which(e[, 2] != "DUMMY"), ]
+            names(e) <- c("from", "to", "weight")
 
 
-    class(subnet) <- c("PCSF", "igraph")
+            # Differentiate the type of nodes
+            type <- rep("Steiner", length(output[[4]]))
+            index <- match(terminal_names, output[[4]])
+            index <- index[!is.na(index)]
+            type[index] <- "Terminal"
 
-    return (subnet)
+            v <- data.frame(output[[4]], output[[5]], type)
+            names(v) <- c("terminals", "prize", "type")
+            subnet <- graph.data.frame(e, vertices = v, directed = F)
+            E(subnet)$weight <- as.numeric(output[[3]])
+            subnet <- delete_vertices(subnet, "DUMMY")
+            subnet <- delete_vertices(subnet, names(which(degree(subnet) == 0)))
 
-  } else{
 
-    stop("  Subnetwork can not be identified for a given parameter set.
+            class(subnet) <- c("PCSF", "igraph")
+
+            return(subnet)
+        } else {
+            stop("  Subnetwork can not be identified for a given parameter set.
     Provide a compatible b or mu value with your terminal prize list...\n\n")
-
-  }
-
-}
+        }
+    }

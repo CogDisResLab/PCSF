@@ -1,2 +1,10 @@
 ^.*\.Rproj$
+^HISTORY\.rst$
+^LICENSE\.md$
 ^\.Rproj\.user$
+^\.github$
+^\.pre-commit-config\.yaml$
+^codemeta\.json$
+^renv$
+^renv\.lock$
+^utilities$

@@ -4,9 +4,11 @@
 \name{Tgfb_phospho}
 \alias{Tgfb_phospho}
 \title{Phosphoproteomic data}
-\format{A named \code{numeric} vector, where terminal genes are named same as 
-in the interaction network and numeric values correspond to the importance of 
-the gene within the study.}
+\format{
+A named \code{numeric} vector, where terminal genes are named same as
+in the interaction network and numeric values correspond to the importance of
+the gene within the study.
+}
 \source{
 Tgfb_phos.txt \url{https://github.com/fraenkel-lab/OmicsIntegrator/tree/master/example/a549}
 }
@@ -14,7 +16,7 @@ Tgfb_phos.txt \url{https://github.com/fraenkel-lab/OmicsIntegrator/tree/master/e
 Tgfb_phospho
 }
 \description{
-This dataset contains differential phosphoproteomic data derived from H358 cells, 
+This dataset contains differential phosphoproteomic data derived from H358 cells,
 a model of lung cancer, that were stimulated with TGF-b.
 }
 \keyword{data}

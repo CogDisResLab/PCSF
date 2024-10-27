@@ -1,0 +1,68 @@
+name: Continuous Integration / R Workflows
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+    - master
+    - main
+    - RELEASE_**
+    - graphite-**
+  pull_request:
+    branches:
+    - master
+    - main
+    - devel
+    - RELEASE_**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  optimize_ci:
+      runs-on: ubuntu-latest
+      outputs:
+        skip: ${{ steps.check_skip.outputs.skip }}
+      steps:
+        - name: Optimize CI
+          id: check_skip
+          uses: withgraphite/graphite-ci-action@main
+          with:
+            graphite_token: ${{secrets.GRAPHITE_TOKEN}}
+  rworkflows:
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    container: ${{ matrix.config.cont }}
+    needs: [optimize_ci]
+    if: needs.optimize_ci.outputs.skip == 'false'
+    strategy:
+      fail-fast: ${{ false }}
+      matrix:
+        config:
+        - os: ubuntu-latest
+          bioc: devel
+          r: auto
+          cont: bioconductor/bioconductor_docker:devel
+          rspm: https://packagemanager.rstudio.com/cran/__linux__/focal/release
+        - os: macOS-latest
+          bioc: devel
+          r: auto
+        - os: windows-latest
+          bioc: devel
+          r: auto
+    steps:
+    - uses: neurogenomics/rworkflows@master
+      with:
+        run_bioccheck: ${{ true }}
+        run_rcmdcheck: ${{ true }}
+        as_cran: ${{ true }}
+        run_vignettes: ${{ true }}
+        has_testthat: ${{ true }}
+        run_covr: ${{ false }}
+        run_pkgdown: ${{ false }}
+        has_runit: ${{ false }}
+        has_latex: ${{ false }}
+        GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+        run_docker: ${{ false }}
+        runner_os: ${{ runner.os }}
+        cache_version: cache-v1
