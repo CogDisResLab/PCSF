@@ -60,15 +60,15 @@ In order to avoid a bias towards the hub nodes of PPI networks to appear in solu
 of PCSF, we penalize the prizes of \emph{Steiner} nodes according to their degree
 distribution in PPI, and it is regulated by parameter \eqn{\mu}:
 
- \deqn{p'_{v} = p_{v} - \mu*degree(v)}
+\deqn{p'_{v} = p_{v} - \mu*degree(v)}
 
- The parameter \eqn{\mu} also affects the total number of \emph{Steiner} nodes in the solution.
- Higher the value of \eqn{\mu} smaller the number of \emph{Steiners} in the subnetwork,
- and vice-versa. Based on our previous analysis the recommended range of \eqn{\mu}
- for biological networks is between 1e-4 and 5e-2, and users can choose the values
- resulting subnetworks with vertex sets that have desirable \emph{Steiner/terminal}
- node ratio and average \emph{Steiner/terminal} in-degree ratio
- in the template interaction network.
+The parameter \eqn{\mu} also affects the total number of \emph{Steiner} nodes in the solution.
+Higher the value of \eqn{\mu} smaller the number of \emph{Steiners} in the subnetwork,
+and vice-versa. Based on our previous analysis the recommended range of \eqn{\mu}
+for biological networks is between 1e-4 and 5e-2, and users can choose the values
+resulting subnetworks with vertex sets that have desirable \emph{Steiner/terminal}
+node ratio and average \emph{Steiner/terminal} in-degree ratio
+in the template interaction network.
 }
 \examples{
 \dontrun{

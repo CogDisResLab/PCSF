@@ -77,7 +77,7 @@ and Avi M. (2013) Enrichr: Interactive and Collaborative Html5 Gene List Enrichm
 Analysis Tool. \emph{BMC Bioinformatics} 14 (1). BioMed Central: 1.
 
 Alexa A. and Rahnenfuhrer J. (2009). topGO: Enrichment Analysis for Gene Ontology.
- R package version 2.28.0.
+R package version 2.28.0.
 }
 \seealso{
 \code{\link{PCSF_rand}}, \code{\link{plot.PCSFe}}

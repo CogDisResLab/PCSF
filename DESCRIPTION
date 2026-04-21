@@ -19,6 +19,7 @@ Description: Provides an integrated analysis of high-throughput data using inter
 License: MIT + file LICENSE
 URL: https://github.com/CogDisResLab/PCSF
 BugReports: https://github.com/CogDisResLab/PCSF/issues
+Encoding: UTF-8
 Depends:
     R (>= 4.0.0),
     igraph,
@@ -38,7 +39,7 @@ Suggests:
 LinkingTo:
     BH,
     Rcpp
-Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Config/testthat/edition: 3
 LazyData: true
+Roxygen: list(markdown = TRUE)
