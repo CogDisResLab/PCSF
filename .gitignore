@@ -95,3 +95,9 @@ $RECYCLE.BIN/
 # Editors / IDEs
 # VS Code workspace-local settings.
 .vscode/
+
+# LLM Related files
+.codegraph/
+
+# Log files
+*.log
